@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+  }
+  
+header {
+display: flex;
+}
+
+
+
+  body {
+ color: #fff;
+    margin: 0;
+ height: 100vh;
+    font-family: Helvetica;
+ background-color: #C62422;
+ grid-template-columns: 1fr 1fr;
+ grid-template-rows: 100px 100px repeat(300px, 4);
+ grid-template-areas: 
+     "nav nav"
+     "hdr hdr"
+     "stories1 stories2"
+     "stories3 stories4"
+  }
+
+div.header h1 {
+color: #000000;
+display: block;
+justify-content: center;
+background-color: #fff;
+width: 50%;
+text-align: center;
+margin: auto;
+}
+
+h1#heading.teaser::after 
+
+div.header h1 span {
+background-color: #fff;
+display: inline;
+position: absolute;
+}
+
+nav {
+
+}
+
+article.stories1 {
+background-color: #AC211F;
+grid-area: stories1;
+}
+
+article.stories2 {
+background-color: #B82220;
+grid-area: stories2;
+}
+
+article.stories3 {
+background-color: #AC211F;
+grid-area: stories3;
+}
+
+article.stories4 {
+background-color: #B82220;
+grid-area: stories4;
+}
+
+div.logo {
+background-color: #C62422;
+margin: 0;
+padding: 0;
+width: 1000vh;
+height: 30vh;
+display: flex;
+flex-direction: row;
+jutify-content: left
+}
+
+div.logo img {
+display: flex;
+}
+
+div.story {
+padding: 30px;
+display: grid;
+grid-area: "main";
+}
+
+div.story img {
+width: 80px;
+border: 5px solid #fff;
+border-radius: 10%;
+transform: rotate(-10deg);
+bottom: 0;
+}
+
+div.story img:hover {
+transform: rotate(0deg);
+}
+
+div.story h3 {
+text-align: center;
+float: left;
+bottom: 20px;
+
+}
+
+p.news {
+padding: 0;
+
+}
+
+
+@media only screen and (min-width: 600px) {
+ body {
+   /* tablet - two column display */
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 50px auto 30px;
+   grid-template-areas: 
+   "hdr"
+   "main"
+   "stories1"
+   "stories2"
+   "stories3"
+   "stories4";
+ }
+}
+
+@media only screen and (min-width: is 900px) {
+ body {
+   /* tablet - two column display */
+   grid-template-columns: 1fr fr;
+   grid-template-rows: 50px auto 30px;
+   grid-template-areas: 
+     "hdr nav"
+   "stories1 stories2"
+   "stories3 stories4"
+ }
+
+main {
+ grid-area: stories1 stories2;
+}
+
+}
+
+
+
+
