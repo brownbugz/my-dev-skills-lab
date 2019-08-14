@@ -1,0 +1,36 @@
+body {
+    background-color: black;
+    display: grid;
+    grid-template-columns: 20vmin 20vmin 20vmin;
+    grid-template-rows: 20vmin 20vmin 20vmin 20vmin;
+    text-align: center;
+    justify-content: center;
+
+}
+#title {
+    color: white;
+    text-align: center;
+}
+
+#num1, #plus-sign, #num2, #results {
+    border: 2px solid lime;
+    color: white;
+
+}
+
+button {
+    background-color: black;
+    color: white;
+    border: 2px solid lime;
+}
+
+input {
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+#answers {
+    text-align: center;
+}
