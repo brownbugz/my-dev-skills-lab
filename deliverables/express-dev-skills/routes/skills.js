@@ -5,6 +5,10 @@ const skillsController = require('../controllers/skills.js');
 //get all skills
 router.get('/', skillsController.index);
 
+//add a new skill
+router.get('/new', skillsController.new);
+router.post('/', skillsController.addSkill);
+
 //get one skill
 router.get('/:id', skillsController.show);
 
