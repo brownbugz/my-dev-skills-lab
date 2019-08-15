@@ -5,7 +5,7 @@ module.exports = {
     index,
     show,
     new: newSkillPage,
-    addSkill
+    addSkill,
 }
 
 
@@ -31,4 +31,6 @@ function index(req, res) {
     Skill.create(req.body);
     res.redirect('/skills');
   }
+
+
 

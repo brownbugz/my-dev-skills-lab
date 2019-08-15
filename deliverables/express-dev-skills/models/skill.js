@@ -21,12 +21,9 @@ const skills = [
   module.exports = {
       getAll,
       getOne,
-      create
+      addSkill,
+      
   };
-
-  function create(skill) {
-    skills.push(skill);
-  }
 
   function getAll() {
     return skills;
@@ -35,3 +32,8 @@ const skills = [
   function getOne(id) {
     return skills[id - 1];
   }
+
+  function addSkill(skill) {
+    skills.push(skill);
+  }
+
