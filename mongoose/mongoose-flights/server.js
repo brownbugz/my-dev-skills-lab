@@ -7,6 +7,7 @@ var logger = require('morgan');
 // connects to database config
 require('./config/database');
 
+//routers
 var indexRouter = require('./routes/index');
 var flightsRouter = require('./routes/flights');
 
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//using routers
 app.use('/', indexRouter);
 app.use('/flights', flightsRouter);
 

@@ -13,7 +13,9 @@ router.post('/', skillsController.addSkill);
 router.get('/:id', skillsController.show);
 
 //edit
+router.put('/:id', skillsController.editSkill);
 
 //delete
+router.delete('/:id', skillsController.deleteSkill);
 
 module.exports = router;

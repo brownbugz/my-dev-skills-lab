@@ -22,7 +22,8 @@ const skills = [
       getAll,
       getOne,
       addSkill,
-      
+      editSkill,
+      deleteSkill,
   };
 
   function getAll() {
@@ -35,5 +36,13 @@ const skills = [
 
   function addSkill(skill) {
     skills.push(skill);
+  }
+
+  function editSkill() {
+
+  }
+
+  function deleteSkill() {
+
   }
 

@@ -1,35 +1,38 @@
 var mongoose = require('mongoose');
-
 var Schema = mongoose.Schema;
 
-var movieSchema = new Schema({
-    title: {
-        type: String,
-        required: true
-    },
-    releaseYear: {
-        type: Number,
-        default: function() {
-            return new Date().getFullYear();
-        },
-        min: 1927
-    },
-    mpaaRating: {
-        type: String,
-        enum: ['G', 'PG', 'PG-13', 'R']
-    },
-    cast: [String],
-    nowShowing: {
-        type: Boolean,
-        default: false
-    }
-}, {
-    timestamps: true
+var reviewSchema = new Schema({
+  content: String,
+  rating: {
+    type: Number,
+    min: 1,
+    max: 5,
+    default: 5
+  }
+}, {  
+  timestamps: true
 });
 
+var movieSchema = new Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  releaseYear: {
+    type: Number,
+    default: function () {
+      return new Date().getFullYear();
+    }
+  }, 
+  mpaaRating: String,
+  nowShowing: {type: Boolean, default: false 
+  },
+  //an array of subdocs
+  reviews: [reviewSchema],
+  cast:[{
+    type: Schema.Types.ObjectId,
+    ref: 'Performer'
+  }]
+}, {timestamps: true});
 
-
-// compile the schema into a model and export it
 module.exports = mongoose.model('Movie', movieSchema);
-
-

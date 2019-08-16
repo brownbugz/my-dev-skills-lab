@@ -1,32 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  <title>Mongoose Movies</title>
-</head>
-<body>
-  <h1>Flights List</h1>
-  <table>
-      <thead>
-          <tr>
-              <th>Airline</th>
-              <th>Flight Number</th>
-              <th>Date</th>
-          </tr>
-      </thead>
-      <tbody>
-          <% flights.forEach(function(m) { %>
-              <tr>
-                  <td><%= m.airline %></td>
-                  <td><%= m.flightNo %></td>
-                  <td><%= m.departs %></td>
-              </tr>
-          <% }); %>
-      </tbody>
-  </table>
-  <a href="/flights/new">Add Flight</a>
-</body>
-</html>
+<table>
+    <thead>
+        <tr>
+            <th>Airline</th>
+            <th>Airport</th>
+            <th>Flight Number</th>
+            <th>Departure Date</th>
+            <th>Arrival Date</th>
+            <th>Destinations</th>
+        </tr>
+    </thead>
+     <tbody>
+        <% flights.forEach(function(f) { %>
+            <tr>
+                <td><%= f.airline %></td>
+                <td><%= f.airport %></td>
+                <td><%= f.flightNo %></td>
+                <td><%= f.departs %></td>
+                <td><%= f.arrival %></td>
+                <td><%= f.destinations %></td>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>
+<a href="/flights/new">Add Flight</a>

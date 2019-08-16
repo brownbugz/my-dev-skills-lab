@@ -6,6 +6,8 @@ module.exports = {
     show,
     new: newSkillPage,
     addSkill,
+    editSkill,
+    deleteSkill,
 }
 
 
@@ -28,9 +30,23 @@ function index(req, res) {
   }
 
   function addSkill(req, res) {
-    Skill.addSkill(req.body);
+    var skill = new Skill(req.body);
+    skill.save(function(err){
+      if (err) return res.render('skills/new');
+      res.redirect('/skills');
+    });
+  }
+
+  function editSkill(req, res) {
+    Skill.editSkill(req.body);
     res.redirect('/skills');
   }
+
+  function deleteSkill(req, res) {
+
+  }
+
+
 
 
 

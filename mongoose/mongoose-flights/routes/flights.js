@@ -4,9 +4,10 @@ var flightsCtrl = require('../controllers/flights');
 
 
 router.get('/', flightsCtrl.index);
-/* GET /flights/new */
+// /* GET /flights/new */
 router.get('/new', flightsCtrl.newFlight);
 router.post('/', flightsCtrl.create);
+// router.get('/', flightsCtrl.show);
 
 
 module.exports = router;
