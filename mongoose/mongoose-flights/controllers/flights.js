@@ -9,12 +9,14 @@ module.exports = {
 
 function index(req, res) {
     Flight.find({}, function(err, flights) {
-        res.render('flights/index', {title: 'All Flights', flights});
+        if (err) console.log(err);
+        console.log(flights);
+        res.render('flights/index', { title: 'All Flights', flights });
     });
 }
 
 function newFlight(req, res) {
-    res.render('flights/new', {title: 'Add Flight'});
+    res.render('flights/new', { title: 'Add Flight' });
 }
 
 function show(req, res) {
@@ -25,7 +27,7 @@ function show(req, res) {
 
 function create(req, res) {
     var flight = new Flight(req.body);
-    
+    console.log(flight);
     flight.save(function(err) {
         if (err) return res.render('flights/new');
         res.redirect('/flights');
