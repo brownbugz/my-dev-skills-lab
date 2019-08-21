@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
 // load the env vars
 require('dotenv').config();
@@ -25,6 +26,13 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+//session middleware for Passport use
+app.use(session({
+  secret: 'SEIRocks!',
+  resave: false,
+  saveUninitialized: true
+}));
 
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
