@@ -4,9 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-// load secrets from the .env file
-require('dotenv').config();
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 

@@ -1,3 +1,5 @@
+<%- include('../partials/header') %>
+
 <table>
     <thead>
         <tr>
@@ -10,9 +12,11 @@
         </tr>
     </thead>
      <tbody>
+        
         <% flights.forEach(function(f) { %>
             <tr>
-                <td><%= f.airline %></td>
+                <td><form action="/flights/<%= f._id %>?_method=DELETE" method="POST" class="xBtn">
+                    <button type="submit" value="DELETE">X</button></form><%= f.airline %> </td>
                 <td><%= f.airport %></td>
                 <td><%= f.flightNo %></td>
                 <td><%= f.departs %></td>
@@ -20,6 +24,7 @@
                 <td><%= f.destinations %></td>
             </tr>
         <% }); %>
+        
     </tbody>
 </table>
 <a href="/flights/new">Add Flight</a>
