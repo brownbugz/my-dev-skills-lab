@@ -10,6 +10,11 @@ router.get('/students', studentsCtrl.index);
 router.post('/facts', studentsCtrl.addFact);
 
 // DELETE /facts/:id
-router.delete('/facts/:id', studentsCtrl.delFact);
+router.delete('/facts/:id', isLoggedIn, studentsCtrl.delFact);
+
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) return next();
+    res.redirect('/auth/google');
+}
 
 module.exports = router;

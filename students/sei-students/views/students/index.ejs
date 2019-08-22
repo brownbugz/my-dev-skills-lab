@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="stylesheets/style.css" />
   <!-- JavaScript for Materialize -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
 <body>
@@ -17,6 +17,15 @@
     <nav>
       <div class="nav-wrapper">
         <a href="" class="brand-logo left">SEI Student Fun Facts</a>
+        <ul class="right">
+          <li>
+            <% if (user) { %>
+                <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+            <% } else { %>
+                <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+            <% } %>
+          </li>
+        </ul>
       </div>
     </nav>
   </div>
@@ -56,16 +65,38 @@
             <div class="card-content white-text">
               <div>
                 <span class="card-title">
-                  <i class="small material-icons">perm_identity</i>
+                  <% if (student.avatar) { %>
+                    <img src="<%= student.avatar %>" alt="" class="circle responsive-img">&nbsp;&nbsp;
+                  <% } else { %>
+                    <i class="small material-icons">perm_identity</i>
+                  <% } %>
                   <span class="student-name"><%= student.name %></span>
-                  <% if (student.cohort) { %><span class="badge white">SEI <%= student.cohort %></span><% } %>
+                  <% if (student.cohort) { %>
+                    <span class="badge white">SEI <%= student.cohort %></span>
+                  <% } %>
                 </span>
               </div>
               <ul class="collection">
                 <% student.facts.forEach(function(fact) { %>
-                  <li class="collection-item blue-grey-text text-darken-2"><%- fact.text %></li>
+                  <li class="collection-item blue-grey-text text-darken-2">
+                    <!-- Add delete form - don't forget to install method-override -->
+                    <span class="title"><%- fact.text %></span>
+                    <% if (student._id.equals(user && user._id)) { %>
+                      <form action="/facts/<%= fact._id %>?_method=DELETE" method="POST" class="secondary-content">
+                        <button type="submit" class="btn-small red-text">X</button>
+                      </form>
+                    <% } %>
+                  </li>
                 <% }) %>
               </ul>
+              <% if (student._id.equals(user && user._id)) { %>
+                <div class="card-action">
+                  <form action="/facts" method="POST">
+                    <input type="text" name="text" class="white-text">
+                    <button type="submit" class="btn white-text">Add Fact</button>
+                  </form>
+                </div>
+              <% } %>
             </div>
           </div>
         <% }) %>
@@ -73,5 +104,4 @@
     </div>
   </div>
 </body>
-
 </html>
