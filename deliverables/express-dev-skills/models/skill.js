@@ -38,11 +38,11 @@ const skills = [
     skills.push(skill);
   }
 
-  // function editSkill() {
+  function editSkill(id, skill) {
+    skill[id] = skill;
+  }
 
-  // }
-
-  // function deleteSkill() {
-
-  // }
+  function deleteSkill(id) {
+    skill.splice(id, 1);
+  }
 
