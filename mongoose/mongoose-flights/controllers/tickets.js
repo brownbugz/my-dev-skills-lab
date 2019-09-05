@@ -2,26 +2,12 @@ var Flight = require('../models/flight');
 var Ticket = require('../models/ticket');
 
 module.exports = {
-
-}
-
-
-
-
-
-
-
-
-var Flight = require('../models/flight');
-var Ticket = require('../models/ticket');
-
-module.exports = {
   create,
   delete: deleteTicket
 }
 
 function create(req, res){
-  res.redirect('/flights/show');
+  res.redirect('/tickets/new');
 }
 
 function deleteTicket(req, res, next){

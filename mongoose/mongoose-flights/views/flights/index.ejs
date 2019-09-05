@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<link rel="stylesheet" href="/public/stylesheets/style.css">
+
 <table>
     <thead>
         <tr>
@@ -22,9 +22,12 @@
                 <td><%= f.departs %></td>
                 <td><%= f.arrival %></td>
                 <td><%= f.destinations %></td>
+                <td><form action="/tickets/new"><button type="submit" value="Add Ticket">Add Ticket</button></form></td>
             </tr>
         <% }); %>
         
     </tbody>
 </table>
 <a href="/flights/new">Add Flight</a>
+
+<%- include('../partials/footer') %>

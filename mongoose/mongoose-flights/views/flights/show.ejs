@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="/public/stylesheets/style.css">
-
-
 <%- include('../partials/header') %>
 
 <section id="show-page">
@@ -16,5 +13,10 @@
         <div><%= flight.arrival %></div>
         <div>Destinations: </div>
         <div><%= flight.destinations %></div>
-      </section>
-      
+        <div>Date Again?</div>
+        <div><%= entry.repeatDate %></div>
+</section>
+<a href="/tickets/new">Add Ticket</a>
+
+
+<%- include('../partials/footer') %>
