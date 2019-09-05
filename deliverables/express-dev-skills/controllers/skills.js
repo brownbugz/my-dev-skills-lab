@@ -43,7 +43,8 @@ function index(req, res) {
   }
 
   function deleteSkill(req, res) {
-
+    Skill.deleteOne(req.body);
+    res.redirect('/skills');
   }
 
 
