@@ -4,9 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Add a New Skill</title>
 </head>
 <body>
-    
+    <h1>Edit <%= skill.name %></h1>
+    <div class="form">
+        <form action="/skills/<%= skillIdx %>?_method=PUT" method="POST" autocomplete="off">
+            <!-- Name attributes map to keys of model -->
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" value="<%= skill.name %>">
+            
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description" value="<%= skill.description %>">
+            
+            <label for="level">Level</label>
+            <input type="number" name="level" id="level" value="<%= skill.level %>">
+
+            <button id="save" type="submit">Save</button>
+        </form>
+    </div>
+
 </body>
 </html>

@@ -2,25 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     <title>Document</title>
 </head>
 <body>
-    <h1>Skills Index</h1>
-
+    <h1>My Dev Skills</h1>
+    <div id="dev-skills">
     <ul>
+        <li><span class="name title">Language</span><span class="description title">Description</span><span class="level title">Skill Level</span></li>
+       <hr>
         <% skills.forEach(function(skill, idx) { %>
-            <li>
-                <%= skill.level %>
-                &mdash; <!--unicode character-->
-                <a href="/skills/<%= idx + 1 %>"><%= skill.name %></a>
-                &mdash;
-                <%= skill.description %>
-            </li>
+        <li>
+            <form action="/skills/<%= idx %>?_method=DELETE" class="delete-button" method="POST">
+                <button class= "mini-delete" type="submit">X</button>
+            </form>
+            <a class="name" href="/skills/<%= idx + 1 %>"><%= skill.name %></a>
+            <span class="description"><%= skill.description %></span>
+            <span class="level"><%= skill.level %></span>
+        </li>
         <% }) %>
     </ul>
-
-    <a href="/skills/new">Add a New Skill</a>
+    <a id="new-skill-link" href="/skills/new">Add New Skill</a>
+    </div>
 </body>
 </html>

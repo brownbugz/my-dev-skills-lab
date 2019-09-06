@@ -4,24 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>skill#new</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Add a New Skill</title>
 </head>
 <body>
-    <h1>Add a New Skill</h1>
+    <h1>Add A New Skill</h1>
+    <div class="form">
+        <form action="/skills" method="POST" autocomplete="off">
+            <!-- Name attributes map to keys of model -->
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name">
+            
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description">
+            
+            <label for="level">Level</label>
+            <input type="number" name="level" id="level">
 
-    <form method="POST" action="/skills">
-        <div>
-            Skill Name: <input type="text" name="name">
-        </div>
-        <div>
-            Description: <input type="text" name="description">
-        </div>
-        <div>
-            Level: <input type="number" name="level">
-        </div>
-        <div>
-            <button type="submit" value="Submit">Save</button>
-        </div>
-    </form>
+            <button id="save" type="submit">Save New Skill</button>
+        </form>
+    </div>
+
 </body>
 </html>

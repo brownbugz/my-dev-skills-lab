@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Show Skills</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Skill#show</title>
 </head>
 <body>
-    <h1>Skill Name: <%= skill.name %></h1>
-    <p>Description: <%= skill.description %></p>
-    <h3>Level: <%= skill.level %></h3>
-
+    <h1><%= skill.name %></h1>
+    <hr>
+    <form action="/skills/<%=skill%>?_method=DELETE" class="delete-button" method="POST">
+        <button type="submit"> Delete Skill </button>
+    </form>
+    <a href="/skills/<%= idx %>/edit">Edit Skill</a>
+    <p><%= skill.description %></p>
+    <p>Level: <%= skill.level %></p>
 </body>
 </html>
