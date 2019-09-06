@@ -20,12 +20,12 @@
                 <td><%= f.flightNo %></td>
                 <td><%= f.departs %></td>
                 <td><%= f.arrival %></td>
-                <td><form action="/tickets/new"><button type="submit" value="Add Ticket">Add Ticket</button></form></td>
+                <td><form action="/tickets/new"><button type="submit" name="Add Ticket" value="Add Ticket">Add Ticket</button></form></td>
             </tr>
         <% }); %>
         
     </tbody>
 </table>
-<a href="/flights/new">Add Flight</a>
+<a href="/flights/new">ADD FLIGHT</a>
 
 <%- include('../partials/footer') %>
