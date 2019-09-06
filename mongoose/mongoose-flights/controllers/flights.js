@@ -1,4 +1,5 @@
 var Flight = require('../models/flight');
+var Ticket = require('../models/ticket');
 
 module.exports = {
     newFlight,
@@ -20,9 +21,17 @@ function newFlight(req, res) {
 }
 
 function show(req, res) {
-    Flight.findById(req.params.id, function(err, flight) {
-        if (err) console.log(err);
-        res.render('flights/show', {title: 'Flight Detail', flight});
+    let destination = Flight.schema.path('destinations').schema.path('airport').enumValues
+    Flight.findById(req.params.id, (err, flight) => {
+        Ticket.find({flight: flight._id}, function(err, tickets) {
+            res.render('flights/show', {
+                title: 'Flight',
+                flight,
+                destination,
+                tickets
+            });
+        
+        });
     });
 }
 

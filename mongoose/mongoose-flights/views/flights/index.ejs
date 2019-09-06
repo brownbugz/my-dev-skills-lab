@@ -8,7 +8,6 @@
             <th>Flight Number</th>
             <th>Departure Date</th>
             <th>Arrival Date</th>
-            <th>Destinations</th>
         </tr>
     </thead>
      <tbody>
@@ -21,7 +20,6 @@
                 <td><%= f.flightNo %></td>
                 <td><%= f.departs %></td>
                 <td><%= f.arrival %></td>
-                <td><%= f.destinations %></td>
                 <td><form action="/tickets/new"><button type="submit" value="Add Ticket">Add Ticket</button></form></td>
             </tr>
         <% }); %>

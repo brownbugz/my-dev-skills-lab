@@ -1,22 +1,52 @@
 <%- include('../partials/header') %>
 
-<section id="show-page">
-        <div>Airline: </div>
-        <div><%= flight.airline %></div>
-        <div>Airport: </div>
-        <div><%= flight.airport %></div>
-        <div>Flight No.: </div>
-        <div><%= flight.flightNo %></div>
-        <div>Departure Date: </div>
-        <div><%= flight.departs %></div>
-        <div>Arrival Date: </div>
-        <div><%= flight.arrival %></div>
-        <div>Destinations: </div>
-        <div><%= flight.destinations %></div>
-        <div>Date Again?</div>
-        <div><%= entry.repeatDate %></div>
-</section>
-<a href="/tickets/new">Add Ticket</a>
+<h1><%= title %></h1>
+    <div class = 'board'>
+      <div><%= flight.airport %></div> 
+      <div><%= flight.airline %></div>  
+      <div><%= flight.flightNo %></div> 
+    </div> 
+  
+<h1> Arrival </h1>
+<%flight.destinations.forEach((each) => { %>
+    <div class='board'>
+       <div><%= each.airport;%></div>
+       <div><%= each.arrival%></div> 
+    </div>
+     <% })%>
+     
+<h2>Add Arrival</h2>
+<!-- add airport,date, code -->
+
+<form id="add-arrival" action="/flights/<%=flight._id%>/destinations" method="POST">
+    <label>Destination:
+      <select name="airport">
+        <% dest.forEach(function(d) { %>
+        <option><%= d %></option>
+        <% }) %>               
+      </select><br>
+    </label><br>
+    
+    <label>Arrival Date:
+      <input type="datetime-local" name ="departs">
+    </label><br>
+    <input type="submit" value="Create Flight">
+</form>    
+
+<h2>Tickets</h2>
+
+
+
+<%tickets.forEach((each) => { %>
+    <div class='board'>
+       <div>Seat:<%= each.seat;%></div>
+       <div>$<%= each.price%></div> 
+    </div>
+     <% })%>
+
+
+
+<a href="/flights/<%=flight._id%>/tickets/new">New Ticket</a>
 
 
 <%- include('../partials/footer') %>
