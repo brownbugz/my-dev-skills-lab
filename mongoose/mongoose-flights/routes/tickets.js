@@ -6,3 +6,4 @@ router.get('/flights/:id/tickets/new', ticketsCtrl.newTicket);
 router.post('/flights/:id/tickets', ticketsCtrl.addTicket);
 
 module.exports = router;
+
