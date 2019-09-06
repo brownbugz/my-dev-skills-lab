@@ -41,9 +41,6 @@ display: inline;
 position: absolute;
 }
 
-nav {
-
-}
 
 article.stories1 {
 background-color: #AC211F;
@@ -73,7 +70,7 @@ width: 1000vh;
 height: 30vh;
 display: flex;
 flex-direction: row;
-jutify-content: left
+justify-content: left
 }
 
 div.logo img {
