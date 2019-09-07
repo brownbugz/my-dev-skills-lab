@@ -22,7 +22,7 @@ function addTicket(req, res, next) {
     var ticket = new Ticket(req.body);
     ticket.save((err) => {
         if (err) return res.render('flights'); 
-            return next()
+            return next();
     });
 }
 
