@@ -1,35 +1,35 @@
 
 <%- include('../partials/header') %>    
     
-    <form action="/flights" method="POST">
-        <label>Airline:
-            <select name="airline">
-                <option value="American">American</option>
-                <option value="Southwest">Southwest</option>
-                <option value="United">United</option>
-            </select>
-        <label>Airport:
-            <select name="airport">
-                <option value="AUS">AUS</option>
-                <option value="DAL">DAL</option>
-                <option value="LAX">LAX</option>
-                <option value="SEA">SEA</option>
-            </select>
-        </label>
-        </label><br>
-        <label>Flight No.:
-          <input type="number" name="flightNo">
-        </label><br>
-        <label>Departure Date:
-          <input type="datetime-local" name="departs">
-        </label><br>
-        <label>Arrival Date:
-          <input type="datetime-local" name="arrival">
-        </label><br>
-        <input type="submit" value="Add Flight">
-    </form>
-    <form action="/tickets/new" method="POST">
-      <input type="submit" value="Add Ticket">
-    </form>
+<form action="/flights" method="POST">
+  <label>Airline:
+    <select name="airline">
+      <option value="American">American</option>
+      <option value="Southwest">Southwest</option>
+      <option value="United">United</option>
+    </select>
+  <label>Airport:
+    <select name="airport">
+      <option value="AUS">AUS</option>
+      <option value="DAL">DAL</option>
+      <option value="LAX">LAX</option>
+      <option value="SEA">SEA</option>
+    </select>
+  </label>
+  <label>Flight No.:
+    <input type="number" name="flightNo">
+  </label><br>
+  <label>Departure Date:
+    <input type="datetime-local" name="departs">
+  </label><br>
+  <label>Arrival Date:
+    <input type="datetime-local" name="arrival">
+  </label><br>
+  <input type="submit" value="Add Flight">
+</form>
 
-    <%- include('../partials/footer') %>
+<form action="/tickets/new" method="POST">
+  <input type="submit" value="Add Ticket">
+</form>
+
+<%- include('../partials/footer') %>
