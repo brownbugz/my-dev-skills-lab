@@ -21,25 +21,19 @@ function newFlight(req, res) {
 }
 
 function show(req, res) {
-    let destination = Flight.schema.path('destinations').schema.path('airport').enumValues
     Flight.findById(req.params.id, (err, flight) => {
         Ticket.find({flight: flight._id}, function(err, tickets) {
-            res.render('flights/show', {
-                title: 'Flight',
-                flight,
-                destination,
-                tickets
+            res.render('flights/show',{flight, tickets})
             });
-        
         });
-    });
-}
+    }
+
 
 function create(req, res) {
     var flight = new Flight(req.body);
     flight.save(function(err) {
         if (err) return res.render('flights/new');
-        res.redirect('/flights');
+        res.redirect(`/flights/${flight._id}`);
     });
 }
 

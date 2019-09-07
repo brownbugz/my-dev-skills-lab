@@ -1,44 +1,48 @@
 <%- include('../partials/header') %>
 
-<h1><%= title %></h1>
-  <div class = 'board'>
-    <div><%= flight.airport %></div> 
-    <div><%= flight.airline %></div>  
-    <div><%= flight.flightNo %></div> 
-  </div> 
+
+<div>
+  <div><%= flight._id %></div>
+  <div><%= flight.airport %></div> 
+  <div><%= flight.airline %></div>  
+  <div><%= flight.flightNo %></div> 
+</div> 
+
+<div>
+  <a href="#destination">ADD DESTINATION</a>
+  <a href="/flights/<%= flight.id %>/tickets/new">ADD TICKET</a>
+  <a href="/flights">ALL FLIGHTS</a>
+</div>
   
-<h1> Arrival </h1>
-<%flight.destinations.forEach((arrive) => { %>
-  <div class='board'>
-    <div><%= arrive.airport;%></div>
-    <div><%= arrive.arrival%></div> 
+<h2> Destination </h2>
+<%flight.destinations.forEach((destination, idx) => { %>
+  <div>
+    <div><%= destination.airport %></div>
+    <div><%= destination.arrival %></div> 
   </div>
-<% })%>
-     
-<h2>Add Arrival</h2>
-<form id="add-arrival" action="/flights/<%=flight._id%>/destinations" method="POST">
-  <label>Destination:
-    <select name="airport">
-      <% destination.forEach(function(d) { %>
-        <option><%= d %></option>
-      <% }) %>               
-    </select><br>
-  </label><br>
-    
-  <label>Arrival Date:
-    <input type="datetime-local" name ="departs">
-  </label><br>
-    <input type="submit" value="Create Flight">
-</form>    
+<% }) %> 
 
-<h2>Tickets</h2>
-<%tickets.forEach((tix) => { %>
-  <div class='board'>
-    <div>Seat:<%= tix.seat;%></div>
-    <div>$<%= tix.price%></div> 
+<h2> Tickets </h2>
+<%tickets.forEach((tix, idx) => { %>
+  <div>
+    <div>Seat #: <%= tix.seat %></div>
+    <div>Price: <%= tix.price %></div> 
   </div>
-<% })%>
+<% }) %>
 
-<a href="/flights/<%=flight._id%>/tickets/new">Add Ticket</a>
+<h2>Add Destination</h2>
+<form method="POST" action="/flights/<%= flight._id %>/destinations">
+    <label>Airport:</label>
+      <select name="airport">
+        <option value="AUS">AUS</option>
+        <option value="DAL">DAL</option>
+        <option value="LAX">LAX</option>
+        <option value="SEA">SEA</option>
+      </select>
+    <label >Arrival Date/Time:
+        <input type="datetime-local">
+    </label>
+    <input type="submit" value="Add Destination">
+</form>
 
 <%- include('../partials/footer') %>

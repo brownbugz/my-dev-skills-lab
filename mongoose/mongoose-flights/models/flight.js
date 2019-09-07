@@ -42,9 +42,10 @@ var flightSchema = new Schema({
             return new Date(new Date().setFullYear);
         }
     },
-    destinations: [destinationSchema] 
-    }, {
-    timestamps: true
+    destinations: [destinationSchema], 
+    tickets: { 
+        type: Array, default: [] 
+    }
 });
 
 module.exports = mongoose.model('Flight', flightSchema);

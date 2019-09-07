@@ -20,6 +20,7 @@
                 <td><%= f.flightNo %></td>
                 <td><%= f.departs %></td>
                 <td><%= f.arrival %></td>
+                <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
                 <td><form action="/tickets/new"><button type="submit" name="Add Ticket" value="Add Ticket">Add Ticket</button></form></td>
             </tr>
         <% }); %>
